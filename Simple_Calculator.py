@@ -13,7 +13,7 @@ button_values = [
 top_row = button_values[0]
 operation_symbols = ["÷", "x", "-", "+", "="]
 row_count = len(button_values) #5
-coloumn_count = len(button_values[0]) #4
+column_count = len(button_values[0]) #4
 
 #colours
 colour_buttons = "#E37F9D"
@@ -24,9 +24,13 @@ colour_background = "#F4BECF"
 #window setup
 window = tkinter.Tk() #creates the window
 window.title("Simple Calculator")
+window.resizable(False, False) #no resizing of the window
 
 frame = tkinter.Frame(window, bg = colour_background)
 label = tkinter.Label(frame, text = "0", font = ("Average, 45"), bg = colour_screen,
                       foreground = colour_text)
+
+label.grid(row = 0, column = 0)
+frame.pack()
 
 window.mainloop() #we want the window to stay open until we close it, so we use mainloop() to keep it running
