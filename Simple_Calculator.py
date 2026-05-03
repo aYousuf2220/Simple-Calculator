@@ -1,32 +1,32 @@
 # Simple Calculator!
-from tkinter import*
+import tkinter
 
-class Calculator:
-    #initializer
-    def __init__(self, root) -> None:
-        self.root = root #stores the TK root window on the calc instance so every method can access it later
-        self.title = self.root.title("Simple Calculator")
-        self.root.geometry("615x680+400+100") #sets the size of the window to 615x680 pixels and positions it at (400, 100) on the screen
-        self.root.configure(bg = "#EEA9BF") #sets the background color of the window to light pink
+button_values = [
+    ["↻", "AC", "+/-", "←"], #top row
+    ["7", "8", "9", "÷"],
+    ["4", "5", "6", "x"],
+    ["1", "2", "3", "-"],
+    [".", "0", "=", "+"] #bottom row
+]
 
-        self.MainFrame = Frame(self.root, bd = 18, width = 600, height = 670, relief = RIDGE, 
-                               bg = "#F4BECF") #created inside of the window - Main Frame, relief = RIDGE gives a 3D raised grooved border style
+#reference for button values
+top_row = button_values[0]
+operation_symbols = ["÷", "x", "-", "+", "="]
+row_count = len(button_values) #5
+coloumn_count = len(button_values[0]) #4
 
+#colours
+colour_buttons = "#E37F9D"
+colour_text = "#FFE8F1"
+colour_screen = "#E994AE" #if this doesn't work out, then use black
+colour_background = "#F4BECF"
 
-    #addition function
-    def addition(self):
-        pass
+#window setup
+window = tkinter.Tk() #creates the window
+window.title("Simple Calculator")
 
-    #subtraction function
-    def subtraction(self):
-        pass
+frame = tkinter.Frame(window, bg = colour_background)
+label = tkinter.Label(frame, text = "0", font = ("Average, 45"), bg = colour_screen,
+                      foreground = colour_text)
 
-    #multiplication function
-    def multiplication(self):
-        pass
-
-    #division function
-    def division(self):
-        pass
-    
-    #
+window.mainloop() #we want the window to stay open until we close it, so we use mainloop() to keep it running
